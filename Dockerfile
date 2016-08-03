@@ -18,6 +18,7 @@ RUN wget -q -P /fonts https://github.com/aaronlidman/Toner-for-Tilemill/raw/mast
     wget -q -P /fonts https://github.com/aaronlidman/Toner-for-Tilemill/raw/master/toner4tilemill/fonts/Arial-Unicode-Italic.ttf && \
     wget -q -P /fonts https://github.com/aaronlidman/Toner-for-Tilemill/raw/master/toner4tilemill/fonts/Arial-Unicode-Regular.ttf
 
+RUN mkdir -p /data
 RUN wget -r -nH --cut-dirs=1 --no-parent --reject web.config -P /data http://maps.nss-uk.com/nss/
 
 ENV MAPNIK_FONT_PATH=/fonts
@@ -35,7 +36,7 @@ RUN npm install \
 COPY / /usr/src/app
 RUN npm install
 
-VOLUME /data
+# VOLUME /data
 ENV SOURCE_DATA_DIR=/data \
     DEST_DATA_DIR=/project \
     PORT=80 \

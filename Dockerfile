@@ -18,7 +18,7 @@ RUN wget -q -P /fonts https://github.com/aaronlidman/Toner-for-Tilemill/raw/mast
     wget -q -P /fonts https://github.com/aaronlidman/Toner-for-Tilemill/raw/master/toner4tilemill/fonts/Arial-Unicode-Italic.ttf && \
     wget -q -P /fonts https://github.com/aaronlidman/Toner-for-Tilemill/raw/master/toner4tilemill/fonts/Arial-Unicode-Regular.ttf
 
-RUN wget -r -nH --cut-dirs=1 --no-parent -P /data http://maps.nss-uk.com/nss/
+RUN wget -r -nH --cut-dirs=1 --no-parent --reject web.config -P /data http://maps.nss-uk.com/nss/
 
 ENV MAPNIK_FONT_PATH=/fonts
 
